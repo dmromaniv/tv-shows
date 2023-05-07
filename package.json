@@ -1,13 +1,12 @@
 {
-  "homepage": "https://dmromaniv.github.io/tv-shows/",
-  "name": "shows-scout",
+  "name": "tv-shows",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
+    "deploy": "npm run deploy",
     "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
@@ -21,7 +20,9 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
-    "react-router-dom": "^6.11.1"
+    "react-router-dom": "^6.11.1",
+    "html-react-parser": "^3.0.16",
+    "react-loader-spinner": "^5.3.4"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",

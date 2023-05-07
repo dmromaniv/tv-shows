@@ -31,7 +31,6 @@ function TVShowDetail() {
           setTvShowInfo(response.data);
           setErrorStatus(false);
         } catch (error) {
-          console.log(error.message);
           setErrorStatus(true);
         } finally {
           setLoadingStatus(false);
@@ -44,9 +43,6 @@ function TVShowDetail() {
     return (
       <>
         <Error />
-        <Link className={styles.homeLink} to={routes.home}>
-          Go to the home page
-        </Link>
       </>
     );
   }
