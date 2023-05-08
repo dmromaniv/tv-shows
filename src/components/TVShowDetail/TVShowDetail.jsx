@@ -5,19 +5,19 @@ import parse from "html-react-parser";
 
 import { fetchTVShowById } from "@/services/tvmazeAPI";
 import { selectTvShows } from "@/redux/selectors";
-import { routes } from "@/helpers/routes";
+import { checkData } from "@/helpers/checkData";
 
 import Error from "../Error/";
 import Loader from "../Loader";
 import styles from "./TvShowDetail.module.scss";
-import "animate.css";
 
 function TVShowDetail() {
   const { id } = useParams();
+  const tvShows = useSelector(selectTvShows);
+
   const [tvShowInfo, setTvShowInfo] = useState(null);
   const [isLoading, setLoadingStatus] = useState(false);
   const [isError, setErrorStatus] = useState(false);
-  const tvShows = useSelector(selectTvShows);
 
   useEffect(() => {
     (async () => {
@@ -83,17 +83,15 @@ function TVShowDetail() {
           <tbody>
             <tr>
               <th className={styles.tHeading}>Name</th>
-              <td className={styles.tData}>{name}</td>
+              <td className={styles.tData}>{checkData(name)}</td>
             </tr>
             <tr>
               <th className={styles.tHeading}>Genres</th>
-              <td className={styles.tData}>
-                {genres.length > 0 ? genres.join(", ") : "no info"}
-              </td>
+              <td className={styles.tData}>{checkData(genres)}</td>
             </tr>
             <tr>
               <th className={styles.tHeading}>Rating</th>
-              <td className={styles.tData}>{rating.average || "no info"}</td>
+              <td className={styles.tData}>{checkData(rating.average)}</td>
             </tr>
             <tr>
               <th className={styles.tHeading}>Link</th>
@@ -110,20 +108,16 @@ function TVShowDetail() {
             </tr>
             <tr>
               <th className={styles.tHeading}>Status</th>
-              <td className={styles.tData}>{status}</td>
+              <td className={styles.tData}>{checkData(status)}</td>
             </tr>
             <tr>
               <th className={styles.tHeading}>Schedule</th>
               <td className={styles.tData}>
-                {schedule.days.length !== 0 ? (
-                  <>
-                    <span className={styles.scheduleDays}>
-                      {schedule.days.join(", ")}
-                    </span>
-                    <span className={styles.scheduleTime}>{schedule.time}</span>
-                  </>
-                ) : (
-                  "no info"
+                <span className={styles.scheduleDays}>
+                  {checkData(schedule.days)}
+                </span>
+                {schedule.time && (
+                  <span className={styles.scheduleTime}>{schedule.time}</span>
                 )}
               </td>
             </tr>

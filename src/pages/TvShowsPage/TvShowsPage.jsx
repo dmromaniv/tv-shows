@@ -1,11 +1,11 @@
 import { useSelector } from "react-redux";
 
 import { selectLoadingStatus, selectError } from "@/redux/selectors";
+
 import Header from "@/components/Header";
 import Loader from "@/components/Loader";
 import TvShowList from "@/components/TvShowList/TvShowList";
 import Error from "@/components/Error/Error";
-
 import styles from "./TvShows.module.scss";
 
 function TvShowsPage() {

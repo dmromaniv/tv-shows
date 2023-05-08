@@ -1,3 +1,4 @@
+import { checkData } from "@/helpers/checkData";
 import styles from "./TvShowItem.module.scss";
 
 /* eslint-disable */
@@ -13,10 +14,10 @@ function TvShowItem({ name, rating, image }) {
         alt={name}
       />
       <p className={styles.ratings}>
-        Ratings: <span>{rating.average || "no info"}</span>
+        Ratings: <span>{checkData(rating.average)}</span>
       </p>
       <div className={styles.textContent}>
-        <p className={styles.name}>{name}</p>
+        <p className={styles.name}>{checkData(name)}</p>
       </div>
     </div>
   );

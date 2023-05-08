@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { selectTvShows } from "@/redux/selectors";
 import TvShowItem from "../TvShowItem";
 import styles from "./TvShowList.module.scss";
-import "animate.css";
 
 function TvShowList() {
   const tvShowsData = useSelector(selectTvShows);

@@ -11,6 +11,6 @@
   flex-basis: calc((100% - 60px) / 5);
 
   &:hover {
-    box-shadow: $boxShadowCl;
+    box-shadow: 1px 1px 15px 0px $boxShadowCl;
   }
 }
