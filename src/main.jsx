@@ -8,7 +8,7 @@ import App from "./App.jsx";
 import "./index.scss";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <BrowserRouter basename="/tv-shows">
+  <BrowserRouter>
     <Provider store={store}>
       <React.StrictMode>
         <App />
